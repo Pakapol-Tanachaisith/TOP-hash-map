@@ -1,18 +1,23 @@
-import "./style.css";
-import Webpack from "./assets/images/webpack-logo.png";
+import HashMap from "./HashMap";
 
-const container = document.querySelector("main");
+const family = new HashMap();
 
-const div = document.createElement("div");
-div.className = "container";
+family.set("Peter", "Peter Griffin");
+family.set("Luis", "Luis Griffin");
+family.set("Chris", "Chris Griffin");
+family.print();
 
-const img = document.createElement("img");
-img.className = "logo";
-img.src = Webpack;
+console.log(family.get("Peter"));
+console.log(family.has("Luis"));
 
-const p = document.createElement("p");
-p.textContent = "Simple Webpack Template";
+family.remove("Chris");
+family.print();
 
-div.append(img, p);
+console.log(family.length());
 
-container.appendChild(div);
+console.log(family.keys());
+console.log(family.values());
+console.log(family.entries());
+
+family.clear();
+family.print();
